@@ -13,7 +13,8 @@ app.use(function(req, res) {
 			if(host == "www.zrmm.com"){
 				var zrmm = require("./site_conf/www_zrmm_com.js");
 				newBody = zrmm.handle(body);
-       			res.write(unescape(newBody)); 
+				newBody = unescape(newBody.replace(/&#x/g,'%u').replace(/;/g,''));
+       			res.write(newBody); 
 				res.end();
 				return;
 			}
