@@ -13,8 +13,9 @@ app.use(function(req, res) {
 			if(host == "www.zrmm.com"){
 				var zrmm = require("./site_conf/www_zrmm_com.js");
 				newBody = zrmm.handle(body);
-				res.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
-				res.end(newBody);
+				res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});  
+    // 发送响应数据 "Hello World"  
+       			res.write(newBody); 
 				return;
 			}
 			if(host == "www.zhisland.com"){
