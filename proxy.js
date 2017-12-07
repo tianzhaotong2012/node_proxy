@@ -13,12 +13,14 @@ app.use(function(req, res) {
 			if(host == "www.zrmm.com"){
 				var zrmm = require("./site_conf/www_zrmm_com.js");
 				newBody = zrmm.handle(body);
+				res.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
 				res.send(newBody);
 				return;
 			}
 			if(host == "www.zhisland.com"){
 				var zhisland = require("./site_conf/www_zhisland_com.js");
 				newBody = zhisland.handle(body);
+				res.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
 				res.send(newBody);
 				return;
 			}
