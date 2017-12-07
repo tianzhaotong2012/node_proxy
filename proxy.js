@@ -16,7 +16,7 @@ app.use(function(req, res) {
 				newBody = zrmm.handle(body);
 				res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});  
     // 发送响应数据 "Hello World"  
-				var gbkBytes = iconv.encode(newBody,'gbk');
+				var gbkBytes = iconv.decode(newBody,'utf-8');
        			res.write(gbkBytes); 
 				res.end();
 				return;
