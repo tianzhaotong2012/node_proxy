@@ -20,6 +20,7 @@ app.use(function(req, res) {
 			if(host == "www.zhisland.com"){
 				var zhisland = require("./site_conf/www_zhisland_com.js");
 				newBody = zhisland.handle(body);
+				newBody = unescape(newBody.replace(/&#x/g,'%u').replace(/;/g,''));
 				res.send(newBody);
 				return;
 			}
