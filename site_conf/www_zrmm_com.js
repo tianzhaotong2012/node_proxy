@@ -9,6 +9,7 @@ var handle = function(body) {
 				$(e).attr("href",afterHref).html();	
 		}
    });
+   $(".conpage").children().first().html("<p></p>");
    return $.html();
 };
 
