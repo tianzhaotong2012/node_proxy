@@ -1,7 +1,6 @@
 var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
-var iconv = require('iconv-lite');
 var app = express();
 app.use(function(req, res) {
     var url = req.url;
@@ -14,10 +13,7 @@ app.use(function(req, res) {
 			if(host == "www.zrmm.com"){
 				var zrmm = require("./site_conf/www_zrmm_com.js");
 				newBody = zrmm.handle(body);
-				res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});  
-    // 发送响应数据 "Hello World"  
-				var gbkBytes = iconv.decode(newBody,'utf-8');
-       			res.write(gbkBytes); 
+       			res.write(unescape(newBody)); 
 				res.end();
 				return;
 			}
