@@ -1,6 +1,7 @@
 var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
+var iconv = require('iconv-lite');
 var app = express();
 app.use(function(req, res) {
     var url = req.url;
