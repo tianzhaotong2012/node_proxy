@@ -14,8 +14,14 @@ app.use(function(req, res) {
 				var zrmm = require("./site_conf/www_zrmm_com.js");
 				newBody = zrmm.handle(body);
 				newBody = unescape(newBody.replace(/&#x/g,'%u').replace(/;/g,''));
-       			res.send(newBody); 
+       				res.send(newBody); 
 				return;
+			}
+			if(host == "ent.sina.cn"){
+				var ent_sina = require("./site_conf/ent_sina_cn.js");
+				newBody = ent_sina.handle(url);
+				res.send(newBody);
+				return;	
 			}
 			if(host == "www.zhisland.com"){
 				var zhisland = require("./site_conf/www_zhisland_com.js");
