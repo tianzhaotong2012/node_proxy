@@ -23,6 +23,12 @@ app.use(function(req, res) {
 				res.send(newBody);
 				return;	
 			}
+			if(host == "baozou.com"){
+				var baozou = require("./site_conf/baozou_com.js");
+				newBody = baozou.handle(url);
+				res.send(newBody);
+				return;	
+			}
 			if(host == "www.zhisland.com"){
 				var zhisland = require("./site_conf/www_zhisland_com.js");
 				newBody = zhisland.handle(body);
