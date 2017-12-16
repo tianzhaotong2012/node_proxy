@@ -23,6 +23,18 @@ app.use(function(req, res) {
 				res.send(newBody);
 				return;	
 			}
+			if(host == "sports.sina.cn"){
+				var mil_sina = require("./site_conf/mil_sina_cn.js");
+				newBody = mil_sina.handle(url);
+				res.send(newBody);
+				return;	
+			}
+			if(host == "mil.sina.cn"){
+				var sports_sina = require("./site_conf/sports_sina_cn.js");
+				newBody = sports_sina.handle(url);
+				res.send(newBody);
+				return;	
+			}
 			if(host == "baozou.com"){
 				var baozou = require("./site_conf/baozou_com.js");
 				newBody = baozou.handle(url);
