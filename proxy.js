@@ -48,9 +48,21 @@ app.use(function(req, res) {
 				res.send(newBody);
 				return;
 			}
-			req.pipe(request(url)).pipe(res);	
+			req.on('error', function (err) {
+ 				console.error('error ', err)
+			}).pipe(request(url)).on('error', function (err) {
+ 				console.error('error ', err)
+			}).pipe(res).on('error', function (err) {
+ 				console.error('error ', err)
+			});	
 		}else{
-			req.pipe(request(url)).pipe(res);
+			req.on('error', function (err) {
+ 				console.error('error ', err)
+			}).pipe(request(url)).on('error', function (err) {
+ 				console.error('error ', err)
+			}).pipe(res).on('error', function (err) {
+ 				console.error('error ', err)
+			});
 		}
 	  }
     });
