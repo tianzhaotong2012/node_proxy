@@ -50,24 +50,30 @@ app.use(function(req, res) {
 			}
 			req.on('error', function (err) {
  				console.error('error ', err);
-				req.end();
+				res.send('error pipe');
+				return;
 			}).pipe(request(url)).on('error', function (err) {
  				console.error('error ', err);
-				req.end();
+				res.send('error pipe');
+				return;
 			}).pipe(res).on('error', function (err) {
  				console.error('error ', err);
-				req.end();
+				res.send('error pipe');
+				return;
 			});	
 		}else{
 			req.on('error', function (err) {
  				console.error('error ', err);
-				req.end();
+				res.send('error pipe');
+				return;
 			}).pipe(request(url)).on('error', function (err) {
  				console.error('error ', err);
-				req.end();
+				res.send('error pipe');
+				return;
 			}).pipe(res).on('error', function (err) {
  				console.error('error ', err);
-				req.end();
+				res.send('error pipe');
+				return;
 			});
 		}
 	  }
