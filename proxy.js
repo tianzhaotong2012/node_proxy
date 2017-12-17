@@ -24,14 +24,14 @@ app.use(function(req, res) {
 				return;	
 			}
 			if(host == "sports.sina.cn"){
-				var mil_sina = require("./site_conf/mil_sina_cn.js");
-				newBody = mil_sina.handle(url);
+				var sports_sina = require("./site_conf/sports_sina_cn.js");
+				newBody = sports_sina.handle(url);
 				res.send(newBody);
 				return;	
 			}
 			if(host == "mil.sina.cn"){
-				var sports_sina = require("./site_conf/sports_sina_cn.js");
-				newBody = sports_sina.handle(url);
+				var mil_sina = require("./site_conf/mil_sina_cn.js");
+				newBody = mil_sina.handle(url);
 				res.send(newBody);
 				return;	
 			}
