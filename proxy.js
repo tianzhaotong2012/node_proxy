@@ -49,19 +49,25 @@ app.use(function(req, res) {
 				return;
 			}
 			req.on('error', function (err) {
- 				console.error('error ', err)
+ 				console.error('error ', err);
+				req.end();
 			}).pipe(request(url)).on('error', function (err) {
- 				console.error('error ', err)
+ 				console.error('error ', err);
+				req.end();
 			}).pipe(res).on('error', function (err) {
- 				console.error('error ', err)
+ 				console.error('error ', err);
+				req.end();
 			});	
 		}else{
 			req.on('error', function (err) {
- 				console.error('error ', err)
+ 				console.error('error ', err);
+				req.end();
 			}).pipe(request(url)).on('error', function (err) {
- 				console.error('error ', err)
+ 				console.error('error ', err);
+				req.end();
 			}).pipe(res).on('error', function (err) {
- 				console.error('error ', err)
+ 				console.error('error ', err);
+				req.end();
 			});
 		}
 	  }
