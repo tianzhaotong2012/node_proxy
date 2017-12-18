@@ -12,8 +12,11 @@ var handle = function(url) {
 		var str = "";
 	  	var obj = eval('(' + ret.stdout + ')');
 	  	for(var item in obj.result) {
+			str += "<a href='";
 			str += obj.result[item].url;
-			str += ",";
+			str += "'>";
+			str += item;
+			str += "</a><br>";
 	   	}
 		return str;
 	}
