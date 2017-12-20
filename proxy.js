@@ -4,6 +4,7 @@ var cheerio = require('cheerio');
 var app = express();
 app.use(function(req, res) {
     var url = req.url;
+    console.log('ACCESS LOG :' + Date() + " URL :" + url);
     request(url, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		var headers = response.headers;
