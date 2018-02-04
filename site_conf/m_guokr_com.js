@@ -21,7 +21,7 @@ var handle = function(url) {
 		return str;
 	}
   }
-  var execStr = "./phantomjs/bin/phantomjs ./phantomjs/js/get_html.js '" + url + "' t.png" + " 1080*1920";
+  var execStr = "timeout 10s ./phantomjs/bin/phantomjs ./phantomjs/js/get_html.js '" + url + "' t.png" + " 1080*1920";
   var ret = shell.exec(execStr);
   if(ret.code !== 0){
 	console.log(execStr);
