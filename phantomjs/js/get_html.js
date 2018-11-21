@@ -52,7 +52,7 @@ if (system.args.length < 3 || system.args.length > 5) {
 		//fs.write('t.txt', page.content, 'w');
 		//file.close();
                 phantom.exit();
-            }, 200);
+            }, 600);
         }
     });
 }

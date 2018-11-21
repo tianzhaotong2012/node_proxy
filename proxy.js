@@ -5,6 +5,14 @@ var app = express();
 app.use(function(req, res) {
     var url = req.url;
     console.log('ACCESS LOG :' + Date() + " URL :" + url);
+    var host =      req.headers['host'];
+    if(host == "www.66ip.cn"){
+                                var www_66ip = require("./site_conf/www_66ip_cn.js");
+                                newBody = www_66ip.handle(url);
+                                console.log(newBody);
+                                res.send(newBody);
+                                return;
+    }
     request(url, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		var headers = response.headers;
